@@ -96,7 +96,7 @@ class OpenSslCipherSuitesPlugin(Plugin):
     """Scan the server(s) for supported OpenSSL cipher suites.
     """
 
-    MAX_THREADS = 10
+    MAX_THREADS = 1
     SSL_VERSIONS_MAPPING: Dict[Type[CipherSuiteScanCommand], OpenSslVersionEnum] = {
         Sslv20ScanCommand: OpenSslVersionEnum.SSLV2,
         Sslv30ScanCommand: OpenSslVersionEnum.SSLV3,

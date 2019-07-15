@@ -316,7 +316,7 @@ class ConcurrentServerConnectivityTester:
     """Utility class to run servers connectivity testing using a thread pool.
     """
 
-    _DEFAULT_MAX_THREADS = 20
+    _DEFAULT_MAX_THREADS = 1
 
     def __init__(self, server_connectivity_testers: List[ServerConnectivityTester]) -> None:
         # Use a thread pool to connect to each server

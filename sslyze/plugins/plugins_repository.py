@@ -34,8 +34,22 @@ class PluginsRepository:
         EarlyDataPlugin,
     ]
 
-    def __init__(self, plugin_classes: List[Type[Plugin]] = _PLUGIN_CLASSES) -> None:
+    _SLOW_PLUGIN_CLASSES = [
+        CertificateInfoPlugin,
+        CompressionPlugin,
+        FallbackScsvPlugin,
+        HeartbleedPlugin,
+        HttpHeadersPlugin,
+        OpenSslCcsInjectionPlugin,
+        SessionRenegotiationPlugin,
+        SessionResumptionPlugin,
+        RobotPlugin,
+        EarlyDataPlugin,
+    ]
+
+    def __init__(self, plugin_classes: List[Type[Plugin]] = _PLUGIN_CLASSES, plugin_classes_slow: List[Type[Plugin]] = _SLOW_PLUGIN_CLASSES) -> None:
         scan_command_classes_to_plugin_classes: Dict[Type[PluginScanCommand], Type[Plugin]] = {}
+        scan_command_classes_to_plugin_classes_slow: Dict[Type[PluginScanCommand], Type[Plugin]] = {}
 
         # Create a dict of scan_commands -> plugin_classes
         for plugin_class in plugin_classes:
@@ -47,17 +61,31 @@ class PluginsRepository:
 
                 scan_command_classes_to_plugin_classes[scan_command_class] = plugin_class
 
+        for plugin_class in plugin_classes_slow:
+            for scan_command_class in plugin_class.get_available_commands():
+
+                # Sanity check: no duplicate scan commands
+                if scan_command_class in scan_command_classes_to_plugin_classes_slow.keys():
+                    raise KeyError("Found duplicate scan command: {}".format(scan_command_class))
+
+                scan_command_classes_to_plugin_classes_slow[scan_command_class] = plugin_class
+
+
         self._scan_command_classes_to_plugin_classes = scan_command_classes_to_plugin_classes
+        self._scan_command_classes_to_plugin_classes_slow = scan_command_classes_to_plugin_classes_slow
 
     def get_plugin_class_for_command(self, scan_command: PluginScanCommand) -> Type[Plugin]:
         """Get the class of the plugin implementing the supplied scan command.
         """
         return self._scan_command_classes_to_plugin_classes[scan_command.__class__]
 
-    def get_available_commands(self) -> Set[Type[PluginScanCommand]]:
+    def get_available_commands(self, skip_tls_checks: int = 0) -> Set[Type[PluginScanCommand]]:
         """Get the list of all available scan comands across all plugins.
         """
-        return set(self._scan_command_classes_to_plugin_classes.keys())
+        if skip_tls_checks == 1:
+            return set(self._scan_command_classes_to_plugin_classes_slow.keys())
+        else:
+            return set(self._scan_command_classes_to_plugin_classes.keys())
 
     def get_available_plugins(self) -> Set[Type[Plugin]]:
         """Get the list of all available plugin.

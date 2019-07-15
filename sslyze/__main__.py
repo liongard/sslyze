@@ -36,7 +36,6 @@ def main() -> None:
 
     plugins_repository = PluginsRepository()
     available_plugins = plugins_repository.get_available_plugins()
-    available_commands = plugins_repository.get_available_commands()
 
     # Create the command line parser and the list of available options
     sslyze_parser = CommandLineParser(available_plugins, __version__)
@@ -49,10 +48,15 @@ def main() -> None:
     output_hub = OutputHub()
     output_hub.command_line_parsed(available_plugins, args_command_list, malformed_server_list)
 
+    if args_command_list.slow_connection: 
+        available_commands = plugins_repository.get_available_commands(skip_tls_checks=1)
+    else:
+        available_commands = plugins_repository.get_available_commands()
+
     # Initialize the pool of processes that will run each plugin
     if args_command_list.https_tunnel or args_command_list.slow_connection:
         # Maximum one process to not kill the proxy or the connection
-        global_scanner = ConcurrentScanner(max_processes_nb=1)
+        global_scanner = ConcurrentScanner(max_processes_nb=1,max_processes_per_hostname_nb=1)
     else:
         global_scanner = ConcurrentScanner()
 
