@@ -3,7 +3,7 @@
 .vscode
 
 # Pipenv
-requirements.txt
+#requirements.txt
 
 *.py[cod]
 

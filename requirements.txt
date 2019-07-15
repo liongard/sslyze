@@ -1,0 +1,4 @@
+nassl==2.2.0
+cryptography==2.5
+tls-parser==1.2.1
+dataclasses==0.6
