@@ -4,13 +4,13 @@ from typing import Union, Optional
 from nassl.legacy_ssl_client import LegacySslClient
 from nassl.ssl_client import OpenSslVersionEnum, SslClient, OpenSslVerifyEnum
 
-from sslyze.ssl_settings import TlsWrappedProtocolEnum
-from sslyze.utils.connection_helpers import ProxyTunnelingConnectionHelper, DirectConnectionHelper, ConnectionHelper
-from sslyze.utils.ssl_connection import SslConnection
+from sslyzeslow.ssl_settings import TlsWrappedProtocolEnum
+from sslyzeslow.utils.connection_helpers import ProxyTunnelingConnectionHelper, DirectConnectionHelper, ConnectionHelper
+from sslyzeslow.utils.ssl_connection import SslConnection
 
 from typing import TYPE_CHECKING
 
-from sslyze.utils.tls_wrapped_protocol_helpers import (
+from sslyzeslow.utils.tls_wrapped_protocol_helpers import (
     SmtpHelper,
     HttpsHelper,
     XmppHelper,
@@ -25,8 +25,8 @@ from sslyze.utils.tls_wrapped_protocol_helpers import (
 )
 
 if TYPE_CHECKING:
-    from sslyze.server_connectivity_info import ServerConnectivityInfo  # noqa: F401
-    from sslyze.server_connectivity_tester import ServerConnectivityTester  # noqa: F401
+    from sslyzeslow.server_connectivity_info import ServerConnectivityInfo  # noqa: F401
+    from sslyzeslow.server_connectivity_tester import ServerConnectivityTester  # noqa: F401
 
 
 class SslConnectionConfigurator:

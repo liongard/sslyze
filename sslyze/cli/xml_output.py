@@ -2,14 +2,14 @@ import re
 from typing import Dict, TextIO, Any, Type, Set, List
 from xml.dom import minidom
 
-from sslyze import PROJECT_URL, __version__
-from sslyze.cli import CompletedServerScan
-from sslyze.cli.command_line_parser import ServerStringParsingError
-from sslyze.cli.output_generator import OutputGenerator
-from sslyze.plugins.plugin_base import Plugin
-from sslyze.server_connectivity_info import ServerConnectivityInfo
-from sslyze.server_connectivity_tester import ServerConnectivityError
-from sslyze.ssl_settings import TlsWrappedProtocolEnum
+from sslyzeslow import PROJECT_URL, __version__
+from sslyzeslow.cli import CompletedServerScan
+from sslyzeslow.cli.command_line_parser import ServerStringParsingError
+from sslyzeslow.cli.output_generator import OutputGenerator
+from sslyzeslow.plugins.plugin_base import Plugin
+from sslyzeslow.server_connectivity_info import ServerConnectivityInfo
+from sslyzeslow.server_connectivity_tester import ServerConnectivityError
+from sslyzeslow.ssl_settings import TlsWrappedProtocolEnum
 from xml.etree.ElementTree import Element, tostring
 
 

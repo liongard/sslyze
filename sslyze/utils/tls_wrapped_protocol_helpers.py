@@ -4,8 +4,8 @@ from abc import abstractmethod, ABC
 
 from nassl.ssl_client import SslClient
 
-from sslyze.utils.http_request_generator import HttpRequestGenerator
-from sslyze.utils.http_response_parser import HttpResponseParser
+from sslyzeslow.utils.http_request_generator import HttpRequestGenerator
+from sslyzeslow.utils.http_response_parser import HttpResponseParser
 
 
 class StartTlsError(IOError):
@@ -105,7 +105,7 @@ class SmtpHelper(TlsWrappedProtocolHelper):
         sock.recv(2048)
 
         # Send a EHLO and wait for the 250 status
-        sock.send(b"EHLO sslyze.scan\r\n")
+        sock.send(b"EHLO sslyzeslow.scan\r\n")
         if b"250 " not in sock.recv(2048):
             raise StartTlsError(self.ERR_SMTP_REJECTED)
 

@@ -2,11 +2,11 @@ import random
 from _elementtree import Element
 from multiprocessing import JoinableQueue
 
-from sslyze.plugins.plugin_base import PluginScanResult
-from sslyze.plugins.plugin_base import PluginScanCommand
-from sslyze.server_connectivity_info import ServerConnectivityInfo
-from sslyze.synchronous_scanner import SynchronousScanner
-from sslyze.utils.worker_process import WorkerProcess
+from sslyzeslow.plugins.plugin_base import PluginScanResult
+from sslyzeslow.plugins.plugin_base import PluginScanCommand
+from sslyzeslow.server_connectivity_info import ServerConnectivityInfo
+from sslyzeslow.synchronous_scanner import SynchronousScanner
+from sslyzeslow.utils.worker_process import WorkerProcess
 from typing import Iterable, Dict
 from typing import List
 

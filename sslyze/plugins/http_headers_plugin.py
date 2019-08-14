@@ -7,13 +7,13 @@ from cryptography.x509 import Certificate, load_pem_x509_certificate
 from dataclasses import dataclass
 from nassl.ssl_client import CouldNotBuildVerifiedChain
 
-from sslyze.plugins.plugin_base import PluginScanCommand, Plugin, PluginScanResult
-from sslyze.plugins.utils.certificate_utils import CertificateUtils
-from sslyze.plugins.utils.trust_store.trust_store_repository import TrustStoresRepository
-from sslyze.server_connectivity_info import ServerConnectivityInfo
-from sslyze.ssl_settings import TlsWrappedProtocolEnum
-from sslyze.utils.http_request_generator import HttpRequestGenerator
-from sslyze.utils.http_response_parser import HttpResponseParser
+from sslyzeslow.plugins.plugin_base import PluginScanCommand, Plugin, PluginScanResult
+from sslyzeslow.plugins.utils.certificate_utils import CertificateUtils
+from sslyzeslow.plugins.utils.trust_store.trust_store_repository import TrustStoresRepository
+from sslyzeslow.server_connectivity_info import ServerConnectivityInfo
+from sslyzeslow.ssl_settings import TlsWrappedProtocolEnum
+from sslyzeslow.utils.http_request_generator import HttpRequestGenerator
+from sslyzeslow.utils.http_response_parser import HttpResponseParser
 from typing import List, Type, Optional, Dict, Any, TypeVar
 
 

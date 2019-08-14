@@ -3,18 +3,18 @@ from typing import Optional, List, Iterable, cast
 
 from nassl.ssl_client import OpenSslVersionEnum, ClientCertificateRequested
 
-from sslyze.server_connectivity_info import ServerConnectivityInfo
-from sslyze.utils.connection_helpers import ProxyError
-from sslyze.utils.ssl_connection_configurator import SslConnectionConfigurator
-from sslyze.ssl_settings import (
+from sslyzeslow.server_connectivity_info import ServerConnectivityInfo
+from sslyzeslow.utils.connection_helpers import ProxyError
+from sslyzeslow.utils.ssl_connection_configurator import SslConnectionConfigurator
+from sslyzeslow.ssl_settings import (
     TlsWrappedProtocolEnum,
     ClientAuthenticationCredentials,
     HttpConnectTunnelingSettings,
     ClientAuthenticationServerConfigurationEnum,
 )
-from sslyze.utils.ssl_connection import SslHandshakeRejected
-from sslyze.utils.thread_pool import ThreadPool
-from sslyze.utils.tls_wrapped_protocol_helpers import StartTlsError
+from sslyzeslow.utils.ssl_connection import SslHandshakeRejected
+from sslyzeslow.utils.thread_pool import ThreadPool
+from sslyzeslow.utils.tls_wrapped_protocol_helpers import StartTlsError
 
 
 class ServerConnectivityError(Exception):
@@ -114,7 +114,7 @@ class ServerConnectivityTester:
             ip_address: The server's IP address. If not supplied, a DNS lookup for the specified `hostname` will be
                 performed. If `http_tunneling_settings` is specified, `ip_address` cannot be supplied as the HTTP proxy
                 will be responsible for looking up and connecting to the server to be scanned.
-            tls_wrapped_protocol: The protocol wrapped in TLS that the server expects. It allows sslyze to figure out
+            tls_wrapped_protocol: The protocol wrapped in TLS that the server expects. It allows sslyzeslow to figure out
                 how to establish a (Start)TLS connection to the server and what kind of "hello" message
                 (SMTP, XMPP, etc.) to send to the server after the handshake was completed. If not supplied, standard
                 TLS will be used.
@@ -124,10 +124,10 @@ class ServerConnectivityTester:
                 specified `hostname` will be used. Should only be set if the supplied `tls_wrapped_protocol` is an
                 XMPP protocol.
             client_auth_credentials: The client certificate and private key needed to perform mutual authentication
-                with the server. If not supplied, sslyze will attempt to connect to the server without performing
+                with the server. If not supplied, sslyzeslow will attempt to connect to the server without performing
                 mutual authentication.
             http_tunneling_settings: The HTTP proxy configuration to use in order to tunnel the scans through a proxy.
-                If not supplied, sslyze will run the scans by directly connecting to the server.
+                If not supplied, sslyzeslow will run the scans by directly connecting to the server.
 
         Raises:
             ValueError: If `xmpp_to_hostname` was specified for a non-XMPP protocol.
@@ -251,7 +251,7 @@ class ServerConnectivityTester:
                     ssl_version_supported = ssl_version
                     ssl_cipher_supported = ssl_connection.ssl_client.get_current_cipher_name()
                 except ClientCertificateRequested:
-                    # Connection successful but the servers wants a client certificate which wasn't supplied to sslyze
+                    # Connection successful but the servers wants a client certificate which wasn't supplied to sslyzeslow
                     # Store the SSL version and cipher list that is supported
                     ssl_version_supported = ssl_version
                     ssl_cipher_supported = cipher_list

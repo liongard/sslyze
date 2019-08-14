@@ -2,15 +2,15 @@ import sys
 from io import open
 from typing import Type, Any, Set, List
 
-from sslyze.cli import CompletedServerScan
-from sslyze.cli.command_line_parser import ServerStringParsingError
-from sslyze.cli.console_output import ConsoleOutputGenerator
-from sslyze.cli.json_output import JsonOutputGenerator
-from sslyze.cli.output_generator import OutputGenerator
-from sslyze.cli.xml_output import XmlOutputGenerator
-from sslyze.plugins.plugin_base import Plugin
-from sslyze.server_connectivity_info import ServerConnectivityInfo
-from sslyze.server_connectivity_tester import ServerConnectivityError
+from sslyzeslow.cli import CompletedServerScan
+from sslyzeslow.cli.command_line_parser import ServerStringParsingError
+from sslyzeslow.cli.console_output import ConsoleOutputGenerator
+from sslyzeslow.cli.json_output import JsonOutputGenerator
+from sslyzeslow.cli.output_generator import OutputGenerator
+from sslyzeslow.cli.xml_output import XmlOutputGenerator
+from sslyzeslow.plugins.plugin_base import Plugin
+from sslyzeslow.server_connectivity_info import ServerConnectivityInfo
+from sslyzeslow.server_connectivity_tester import ServerConnectivityError
 
 
 class OutputHub:

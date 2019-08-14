@@ -1,5 +1,5 @@
-from sslyze.plugins.plugin_base import PluginScanResult
-from sslyze.server_connectivity_info import ServerConnectivityInfo
+from sslyzeslow.plugins.plugin_base import PluginScanResult
+from sslyzeslow.server_connectivity_info import ServerConnectivityInfo
 from typing import List
 
 

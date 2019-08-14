@@ -1,18 +1,18 @@
 import sys
 from typing import Any, Text, Dict, List
 
-from sslyze.plugins.plugin_base import PluginScanResult
+from sslyzeslow.plugins.plugin_base import PluginScanResult
 
-from sslyze.concurrent_scanner import ConcurrentScanner
-from sslyze.plugins.plugins_repository import PluginsRepository
-from sslyze.cli.output_hub import OutputHub
-from sslyze.cli import CompletedServerScan
-from sslyze import __version__
-from sslyze.cli.command_line_parser import CommandLineParsingError, CommandLineParser
+from sslyzeslow.concurrent_scanner import ConcurrentScanner
+from sslyzeslow.plugins.plugins_repository import PluginsRepository
+from sslyzeslow.cli.output_hub import OutputHub
+from sslyzeslow.cli import CompletedServerScan
+from sslyzeslow import __version__
+from sslyzeslow.cli.command_line_parser import CommandLineParsingError, CommandLineParser
 import signal
 from multiprocessing import freeze_support
 from time import time
-from sslyze.server_connectivity_tester import ConcurrentServerConnectivityTester
+from sslyzeslow.server_connectivity_tester import ConcurrentServerConnectivityTester
 
 global_scanner = None
 
@@ -38,9 +38,9 @@ def main() -> None:
     available_plugins = plugins_repository.get_available_plugins()
 
     # Create the command line parser and the list of available options
-    sslyze_parser = CommandLineParser(available_plugins, __version__)
+    sslyzeslow_parser = CommandLineParser(available_plugins, __version__)
     try:
-        good_server_list, malformed_server_list, args_command_list = sslyze_parser.parse_command_line()
+        good_server_list, malformed_server_list, args_command_list = sslyzeslow_parser.parse_command_line()
     except CommandLineParsingError as e:
         print(e.get_error_msg())
         return

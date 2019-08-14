@@ -1,11 +1,11 @@
 from abc import ABC, abstractmethod
 from typing import TextIO, Set, Type, Any, List
 
-from sslyze.cli import CompletedServerScan
-from sslyze.cli.command_line_parser import ServerStringParsingError
-from sslyze.plugins.plugin_base import Plugin
-from sslyze.server_connectivity_info import ServerConnectivityInfo
-from sslyze.server_connectivity_tester import ServerConnectivityError
+from sslyzeslow.cli import CompletedServerScan
+from sslyzeslow.cli.command_line_parser import ServerStringParsingError
+from sslyzeslow.plugins.plugin_base import Plugin
+from sslyzeslow.server_connectivity_info import ServerConnectivityInfo
+from sslyzeslow.server_connectivity_tester import ServerConnectivityError
 
 
 class OutputGenerator(ABC):

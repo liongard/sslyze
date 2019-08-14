@@ -6,9 +6,9 @@ from xml.etree.ElementTree import Element
 from nassl._nassl import WantReadError
 from nassl.ssl_client import OpenSslVersionEnum
 
-from sslyze.plugins import plugin_base
-from sslyze.plugins.plugin_base import PluginScanResult, PluginScanCommand
-from sslyze.server_connectivity_info import ServerConnectivityInfo
+from sslyzeslow.plugins import plugin_base
+from sslyzeslow.plugins.plugin_base import PluginScanResult, PluginScanCommand
+from sslyzeslow.server_connectivity_info import ServerConnectivityInfo
 from tls_parser.alert_protocol import TlsAlertRecord
 from tls_parser.application_data_protocol import TlsApplicationDataRecord
 from tls_parser.change_cipher_spec_protocol import TlsChangeCipherSpecRecord

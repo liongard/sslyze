@@ -1,8 +1,8 @@
-from sslyze.plugins.plugin_base import PluginScanResult
-from sslyze.plugins.plugin_base import PluginScanCommand
-from sslyze.plugins.plugins_repository import PluginsRepository
-from sslyze.server_connectivity_info import ServerConnectivityInfo
-from sslyze.utils.ssl_connection import SslConnection
+from sslyzeslow.plugins.plugin_base import PluginScanResult
+from sslyzeslow.plugins.plugin_base import PluginScanCommand
+from sslyzeslow.plugins.plugins_repository import PluginsRepository
+from sslyzeslow.server_connectivity_info import ServerConnectivityInfo
+from sslyzeslow.utils.ssl_connection import SslConnection
 
 
 class SynchronousScanner:

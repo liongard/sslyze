@@ -8,8 +8,8 @@ from nassl import _nassl
 from nassl.ssl_client import SslClient
 from nassl.ssl_client import ClientCertificateRequested
 
-from sslyze.utils.connection_helpers import ConnectionHelper
-from sslyze.utils.tls_wrapped_protocol_helpers import TlsWrappedProtocolHelper
+from sslyzeslow.utils.connection_helpers import ConnectionHelper
+from sslyzeslow.utils.tls_wrapped_protocol_helpers import TlsWrappedProtocolHelper
 
 
 class SslHandshakeRejected(IOError):

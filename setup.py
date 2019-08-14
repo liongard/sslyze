@@ -2,7 +2,7 @@ import sys
 from os import path, listdir
 
 from setuptools import find_packages
-from sslyze import __author__, __email__, __version__, PROJECT_URL
+from sslyzeslow import __author__, __email__, __version__, PROJECT_URL
 
 # Setup file based on https://github.com/pypa/sampleproject/blob/master/setup.py
 root_path = path.abspath(path.dirname(__file__))
@@ -32,7 +32,7 @@ def get_include_files():
     """"Get the list of trust stores so they properly packaged when doing a cx_freeze build.
     """
     plugin_data_files = []
-    trust_stores_pem_path = path.join(root_path, 'sslyze', 'plugins', 'utils', 'trust_store', 'pem_files')
+    trust_stores_pem_path = path.join(root_path, 'sslyzeslow', 'plugins', 'utils', 'trust_store', 'pem_files')
     for file in listdir(trust_stores_pem_path):
         file = path.join(trust_stores_pem_path, file)
         if path.isfile(file):  # skip directories
@@ -42,7 +42,7 @@ def get_include_files():
 
 
 setup(
-    name='sslyze',
+    name='sslyzeslow',
     version=__version__,
     description='Fast and powerful SSL/TLS server scanning library',
     python_requires='>=3.6',
@@ -74,8 +74,8 @@ setup(
 
     # Package info
     packages=find_packages(exclude=['docs', 'tests']),
-    package_data={'sslyze.plugins.utils.trust_store': ['pem_files/*.pem', 'pem_files/*.yaml']},
-    entry_points={'console_scripts': ['sslyze = sslyze.__main__:main']},
+    package_data={'sslyzeslow.plugins.utils.trust_store': ['pem_files/*.pem', 'pem_files/*.yaml']},
+    entry_points={'console_scripts': ['sslyzeslow = sslyzeslow.__main__:main']},
 
     # Dependencies
     install_requires=[
@@ -90,5 +90,5 @@ setup(
         "packages": ['cffi', 'cryptography', 'idna'],
         'include_files': get_include_files(),
     }},
-    executables=[Executable(path.join('sslyze', '__main__.py'), targetName='sslyze.exe')],
+    executables=[Executable(path.join('sslyzeslow', '__main__.py'), targetName='sslyzeslow.exe')],
 )

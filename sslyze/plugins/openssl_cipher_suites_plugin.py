@@ -4,17 +4,17 @@ from operator import attrgetter
 from xml.etree.ElementTree import Element
 
 from nassl.ssl_client import OpenSslVersionEnum, ClientCertificateRequested
-from sslyze.plugins.plugin_base import Plugin, PluginScanCommand
-from sslyze.plugins.plugin_base import PluginScanResult
-from sslyze.server_connectivity_info import ServerConnectivityInfo
-from sslyze.utils.ssl_connection import SslConnection
-from sslyze.utils.ssl_connection import SslHandshakeRejected
-from sslyze.utils.thread_pool import ThreadPool
+from sslyzeslow.plugins.plugin_base import Plugin, PluginScanCommand
+from sslyzeslow.plugins.plugin_base import PluginScanResult
+from sslyzeslow.server_connectivity_info import ServerConnectivityInfo
+from sslyzeslow.utils.ssl_connection import SslConnection
+from sslyzeslow.utils.ssl_connection import SslHandshakeRejected
+from sslyzeslow.utils.thread_pool import ThreadPool
 from typing import Dict, Type
 from typing import List
 from typing import Optional
 
-from sslyze.utils.tls12_workaround import WorkaroundForTls12ForCipherSuites
+from sslyzeslow.utils.tls12_workaround import WorkaroundForTls12ForCipherSuites
 
 
 class CipherSuiteScanCommand(PluginScanCommand, ABC):

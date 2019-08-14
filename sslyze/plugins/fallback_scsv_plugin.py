@@ -2,10 +2,10 @@ from typing import Type, List
 from xml.etree.ElementTree import Element
 from nassl import _nassl
 from nassl.ssl_client import OpenSslVersionEnum
-from sslyze.plugins import plugin_base
-from sslyze.plugins.plugin_base import PluginScanResult, PluginScanCommand
-from sslyze.server_connectivity_info import ServerConnectivityInfo
-from sslyze.utils.ssl_connection import SslHandshakeRejected
+from sslyzeslow.plugins import plugin_base
+from sslyzeslow.plugins.plugin_base import PluginScanResult, PluginScanCommand
+from sslyzeslow.server_connectivity_info import ServerConnectivityInfo
+from sslyzeslow.utils.ssl_connection import SslHandshakeRejected
 
 
 class FallbackScsvScanCommand(PluginScanCommand):
@@ -64,7 +64,7 @@ class FallbackScsvPlugin(plugin_base.Plugin):
         except SslHandshakeRejected:
             # If the handshake is rejected, we assume downgrade attacks are prevented (this is how F5 balancers do it)
             # although it could also be because the server does not support this version of TLS
-            # https://github.com/nabla-c0d3/sslyze/issues/119
+            # https://github.com/nabla-c0d3/sslyzeslow/issues/119
             supports_fallback_scsv = True
 
         finally:

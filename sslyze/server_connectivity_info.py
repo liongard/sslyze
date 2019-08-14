@@ -3,14 +3,14 @@ from typing import Optional
 
 from nassl.ssl_client import OpenSslVersionEnum
 
-from sslyze.ssl_settings import (
+from sslyzeslow.ssl_settings import (
     TlsWrappedProtocolEnum,
     ClientAuthenticationCredentials,
     HttpConnectTunnelingSettings,
     ClientAuthenticationServerConfigurationEnum,
 )
-from sslyze.utils.ssl_connection import SslConnection
-from sslyze.utils.ssl_connection_configurator import SslConnectionConfigurator
+from sslyzeslow.utils.ssl_connection import SslConnection
+from sslyzeslow.utils.ssl_connection_configurator import SslConnectionConfigurator
 
 
 class ServerConnectivityInfo:

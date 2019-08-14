@@ -6,11 +6,11 @@ from nassl.ssl_client import OpenSslFileTypeEnum
 from typing import Optional, Set, Type, List, Any
 from typing import Tuple
 
-from sslyze.plugins.plugin_base import Plugin
-from sslyze.plugins.utils.trust_store.trust_store_repository import TrustStoresRepository
+from sslyzeslow.plugins.plugin_base import Plugin
+from sslyzeslow.plugins.utils.trust_store.trust_store_repository import TrustStoresRepository
 
-from sslyze.server_connectivity_tester import ServerConnectivityTester
-from sslyze.ssl_settings import TlsWrappedProtocolEnum, ClientAuthenticationCredentials, HttpConnectTunnelingSettings
+from sslyzeslow.server_connectivity_tester import ServerConnectivityTester
+from sslyzeslow.ssl_settings import TlsWrappedProtocolEnum, ClientAuthenticationCredentials, HttpConnectTunnelingSettings
 
 
 class CommandLineParsingError(ValueError):
@@ -157,10 +157,10 @@ class CommandLineParser:
         5432: TlsWrappedProtocolEnum.STARTTLS_POSTGRES,
     }
 
-    def __init__(self, available_plugins: Set[Type[Plugin]], sslyze_version: str) -> None:
+    def __init__(self, available_plugins: Set[Type[Plugin]], sslyzeslow_version: str) -> None:
         """Generate SSLyze's command line parser.
         """
-        self._parser = OptionParser(version=sslyze_version, usage=self.SSLYZE_USAGE)
+        self._parser = OptionParser(version=sslyzeslow_version, usage=self.SSLYZE_USAGE)
 
         # Add generic command line options to the parser
         self._add_default_options()
@@ -363,7 +363,7 @@ class CommandLineParser:
             help='Write the scan results as a JSON document to the file JSON_FILE. If JSON_FILE is set to "-", the '
             "JSON output will instead be printed to stdout. The resulting JSON file is a serialized version of "
             "the ScanResult objects described in SSLyze's Python API: the nodes and attributes will be the same. "
-            "See https://nabla-c0d3.github.io/sslyze/documentation/available-scan-commands.html for more details.",
+            "See https://nabla-c0d3.github.io/sslyzeslow/documentation/available-scan-commands.html for more details.",
             dest="json_file",
             default=None,
         )

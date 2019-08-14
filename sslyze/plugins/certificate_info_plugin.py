@@ -20,13 +20,13 @@ from dataclasses import dataclass
 from nassl.ocsp_response import OcspResponse, OcspResponseStatusEnum
 from nassl.ocsp_response import OcspResponseNotTrustedError
 from nassl.ssl_client import ClientCertificateRequested, CouldNotBuildVerifiedChain
-from sslyze.plugins import plugin_base
-from sslyze.plugins.plugin_base import PluginScanResult, PluginScanCommand
-from sslyze.plugins.utils.certificate_utils import CertificateUtils
-from sslyze.plugins.utils.trust_store.trust_store import TrustStore
-from sslyze.plugins.utils.trust_store.trust_store_repository import TrustStoresRepository
-from sslyze.server_connectivity_info import ServerConnectivityInfo
-from sslyze.utils.thread_pool import ThreadPool
+from sslyzeslow.plugins import plugin_base
+from sslyzeslow.plugins.plugin_base import PluginScanResult, PluginScanCommand
+from sslyzeslow.plugins.utils.certificate_utils import CertificateUtils
+from sslyzeslow.plugins.utils.trust_store.trust_store import TrustStore
+from sslyzeslow.plugins.utils.trust_store.trust_store_repository import TrustStoresRepository
+from sslyzeslow.server_connectivity_info import ServerConnectivityInfo
+from sslyzeslow.utils.thread_pool import ThreadPool
 from typing import List, Dict, Any, Type
 from typing import Optional
 from typing import Tuple
@@ -770,7 +770,7 @@ class CertificateInfoScanResult(PluginScanResult):
             text_output.append(self._format_field("Key Size:", public_key.key_size))
             text_output.append(self._format_field("Exponent:", "{0} (0x{0:x})".format(public_key.public_numbers().e)))
         else:
-            # DSA Key? https://github.com/nabla-c0d3/sslyze/issues/314
+            # DSA Key? https://github.com/nabla-c0d3/sslyzeslow/issues/314
             pass
 
         try:

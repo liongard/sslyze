@@ -1,17 +1,17 @@
-from sslyze.plugins.certificate_info_plugin import CertificateInfoPlugin
-from sslyze.plugins.compression_plugin import CompressionPlugin
-from sslyze.plugins.early_data_plugin import EarlyDataPlugin
-from sslyze.plugins.fallback_scsv_plugin import FallbackScsvPlugin
-from sslyze.plugins.heartbleed_plugin import HeartbleedPlugin
-from sslyze.plugins.http_headers_plugin import HttpHeadersPlugin
-from sslyze.plugins.openssl_ccs_injection_plugin import OpenSslCcsInjectionPlugin
-from sslyze.plugins.openssl_cipher_suites_plugin import OpenSslCipherSuitesPlugin
-from sslyze.plugins.plugin_base import Plugin
-from sslyze.plugins.plugin_base import PluginScanCommand
-from sslyze.plugins.robot_plugin import RobotPlugin
+from sslyzeslow.plugins.certificate_info_plugin import CertificateInfoPlugin
+from sslyzeslow.plugins.compression_plugin import CompressionPlugin
+from sslyzeslow.plugins.early_data_plugin import EarlyDataPlugin
+from sslyzeslow.plugins.fallback_scsv_plugin import FallbackScsvPlugin
+from sslyzeslow.plugins.heartbleed_plugin import HeartbleedPlugin
+from sslyzeslow.plugins.http_headers_plugin import HttpHeadersPlugin
+from sslyzeslow.plugins.openssl_ccs_injection_plugin import OpenSslCcsInjectionPlugin
+from sslyzeslow.plugins.openssl_cipher_suites_plugin import OpenSslCipherSuitesPlugin
+from sslyzeslow.plugins.plugin_base import Plugin
+from sslyzeslow.plugins.plugin_base import PluginScanCommand
+from sslyzeslow.plugins.robot_plugin import RobotPlugin
 
-from sslyze.plugins.session_renegotiation_plugin import SessionRenegotiationPlugin
-from sslyze.plugins.session_resumption_plugin import SessionResumptionPlugin
+from sslyzeslow.plugins.session_renegotiation_plugin import SessionRenegotiationPlugin
+from sslyzeslow.plugins.session_resumption_plugin import SessionResumptionPlugin
 from typing import List, Dict, Set
 from typing import Type
 

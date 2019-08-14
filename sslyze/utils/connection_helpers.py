@@ -4,8 +4,8 @@ from base64 import b64encode
 from typing import Optional
 
 from urllib.parse import quote
-from sslyze.ssl_settings import HttpConnectTunnelingSettings
-from sslyze.utils.http_response_parser import HttpResponseParser
+from sslyzeslow.ssl_settings import HttpConnectTunnelingSettings
+from sslyzeslow.utils.http_response_parser import HttpResponseParser
 
 
 class ProxyError(IOError):

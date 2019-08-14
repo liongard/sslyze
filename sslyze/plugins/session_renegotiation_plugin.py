@@ -5,10 +5,10 @@ from xml.etree.ElementTree import Element
 from nassl._nassl import OpenSSLError
 from nassl.ssl_client import OpenSslVersionEnum
 
-from sslyze.plugins import plugin_base
-from sslyze.plugins.plugin_base import PluginScanResult, PluginScanCommand
-from sslyze.server_connectivity_info import ServerConnectivityInfo
-from sslyze.utils.ssl_connection import SslHandshakeRejected
+from sslyzeslow.plugins import plugin_base
+from sslyzeslow.plugins.plugin_base import PluginScanResult, PluginScanCommand
+from sslyzeslow.server_connectivity_info import ServerConnectivityInfo
+from sslyzeslow.utils.ssl_connection import SslHandshakeRejected
 
 
 class SessionRenegotiationScanCommand(PluginScanCommand):
@@ -96,7 +96,7 @@ class SessionRenegotiationPlugin(plugin_base.Plugin):
 
             # Errors caused by a server rejecting the renegotiation
             except socket.timeout:
-                # This is how Netty rejects a renegotiation - https://github.com/nabla-c0d3/sslyze/issues/114
+                # This is how Netty rejects a renegotiation - https://github.com/nabla-c0d3/sslyzeslow/issues/114
                 accepts_client_renegotiation = False
             except socket.error as e:
                 if "connection was forcibly closed" in str(e.args):
@@ -116,7 +116,7 @@ class SessionRenegotiationPlugin(plugin_base.Plugin):
                     # Yahoo's very own way of rejecting a renegotiation
                     accepts_client_renegotiation = False
                 elif "tlsv1 alert internal error" in str(e.args):
-                    # Jetty server: https://github.com/nabla-c0d3/sslyze/issues/290
+                    # Jetty server: https://github.com/nabla-c0d3/sslyzeslow/issues/290
                     accepts_client_renegotiation = False
                 else:
                     raise

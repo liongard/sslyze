@@ -4,11 +4,11 @@ from xml.etree.ElementTree import Element
 from nassl._nassl import OpenSSLError
 from nassl.ssl_client import OpenSslVersionEnum, OpenSslEarlyDataStatusEnum
 
-from sslyze.plugins import plugin_base
-from sslyze.plugins.plugin_base import PluginScanCommand, PluginScanResult
-from sslyze.server_connectivity_info import ServerConnectivityInfo
-from sslyze.utils.http_request_generator import HttpRequestGenerator
-from sslyze.utils.ssl_connection import SslHandshakeRejected
+from sslyzeslow.plugins import plugin_base
+from sslyzeslow.plugins.plugin_base import PluginScanCommand, PluginScanResult
+from sslyzeslow.server_connectivity_info import ServerConnectivityInfo
+from sslyzeslow.utils.http_request_generator import HttpRequestGenerator
+from sslyzeslow.utils.ssl_connection import SslHandshakeRejected
 
 
 class EarlyDataScanCommand(PluginScanCommand):

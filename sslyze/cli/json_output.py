@@ -7,20 +7,20 @@ from cryptography.hazmat.primitives.asymmetric.ec import EllipticCurvePublicKey
 from cryptography.hazmat.primitives.serialization import Encoding
 from cryptography.x509.oid import ObjectIdentifier
 from enum import Enum
-from sslyze import PROJECT_URL, __version__
-from sslyze.cli import CompletedServerScan
-from sslyze.cli.command_line_parser import ServerStringParsingError
-from sslyze.cli.output_generator import OutputGenerator
-from sslyze.plugins.plugin_base import Plugin
-from sslyze.plugins.utils.certificate_utils import CertificateUtils
-from sslyze.server_connectivity_info import ServerConnectivityInfo
-from sslyze.server_connectivity_tester import ServerConnectivityError
+from sslyzeslow import PROJECT_URL, __version__
+from sslyzeslow.cli import CompletedServerScan
+from sslyzeslow.cli.command_line_parser import ServerStringParsingError
+from sslyzeslow.cli.output_generator import OutputGenerator
+from sslyzeslow.plugins.plugin_base import Plugin
+from sslyzeslow.plugins.utils.certificate_utils import CertificateUtils
+from sslyzeslow.server_connectivity_info import ServerConnectivityInfo
+from sslyzeslow.server_connectivity_tester import ServerConnectivityError
 
 
 class JsonOutputGenerator(OutputGenerator):
     def __init__(self, file_to: TextIO) -> None:
         super().__init__(file_to)
-        self._json_dict: Dict[str, Any] = {"sslyze_version": __version__, "sslyze_url": PROJECT_URL}
+        self._json_dict: Dict[str, Any] = {"sslyzeslow_version": __version__, "sslyzeslow_url": PROJECT_URL}
 
     def command_line_parsed(
         self,

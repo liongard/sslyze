@@ -6,7 +6,7 @@ import optparse
 from abc import ABC, abstractmethod
 from xml.etree.ElementTree import Element
 
-from sslyze.server_connectivity_info import ServerConnectivityInfo
+from sslyzeslow.server_connectivity_info import ServerConnectivityInfo
 from typing import List, Type
 
 

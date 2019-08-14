@@ -12,17 +12,17 @@ from nassl._nassl import WantReadError
 from nassl.ssl_client import ClientCertificateRequested, OpenSslVersionEnum
 from tls_parser.change_cipher_spec_protocol import TlsChangeCipherSpecRecord
 
-from sslyze.plugins import plugin_base
-from sslyze.plugins.plugin_base import PluginScanResult, PluginScanCommand
-from sslyze.server_connectivity_info import ServerConnectivityInfo
+from sslyzeslow.plugins import plugin_base
+from sslyzeslow.plugins.plugin_base import PluginScanResult, PluginScanCommand
+from sslyzeslow.server_connectivity_info import ServerConnectivityInfo
 from tls_parser.alert_protocol import TlsAlertRecord
 from tls_parser.record_protocol import TlsRecordTlsVersionBytes
 from tls_parser.exceptions import NotEnoughData
 from tls_parser.handshake_protocol import TlsHandshakeRecord, TlsHandshakeTypeByte, TlsRsaClientKeyExchangeRecord
 from tls_parser.parser import TlsRecordParser
 from tls_parser.tls_version import TlsVersionEnum
-from sslyze.utils.ssl_connection import SslHandshakeRejected
-from sslyze.utils.thread_pool import ThreadPool
+from sslyzeslow.utils.ssl_connection import SslHandshakeRejected
+from sslyzeslow.utils.thread_pool import ThreadPool
 
 
 class RobotScanCommand(PluginScanCommand):
@@ -337,7 +337,7 @@ class RobotPlugin(plugin_base.Plugin):
             # Should always be thrown
             server_response = e.server_response
         except socket.timeout:
-            # https://github.com/nabla-c0d3/sslyze/issues/361
+            # https://github.com/nabla-c0d3/sslyzeslow/issues/361
             server_response = "Connection timed out"
         finally:
             ssl_connection.close()

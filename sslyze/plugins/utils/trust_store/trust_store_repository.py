@@ -9,7 +9,7 @@ from urllib.request import urlretrieve
 import inspect
 import sys
 from os.path import realpath
-from sslyze.plugins.utils.trust_store.trust_store import TrustStore
+from sslyzeslow.plugins.utils.trust_store.trust_store import TrustStore
 from typing import List
 
 

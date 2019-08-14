@@ -4,10 +4,10 @@ from enum import Enum
 
 from nassl.ssl_client import OpenSslVersionEnum
 
-from sslyze.plugins.plugin_base import PluginScanResult, PluginScanCommand, Plugin
-from sslyze.server_connectivity_info import ServerConnectivityInfo
-from sslyze.utils.ssl_connection import SslHandshakeRejected
-from sslyze.utils.thread_pool import ThreadPool
+from sslyzeslow.plugins.plugin_base import PluginScanResult, PluginScanCommand, Plugin
+from sslyzeslow.server_connectivity_info import ServerConnectivityInfo
+from sslyzeslow.utils.ssl_connection import SslHandshakeRejected
+from sslyzeslow.utils.thread_pool import ThreadPool
 from typing import List, Type, Union
 from typing import Optional
 from typing import Tuple
